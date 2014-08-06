@@ -4,7 +4,7 @@ browsersync-ssi
 SSI middleware for browser-sync
 
 
-´´´
+```
 browserSync({
 
   server: {
@@ -17,4 +17,4 @@ browserSync({
 
   },
 });
-´´´
+```
