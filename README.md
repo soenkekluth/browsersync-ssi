@@ -5,6 +5,8 @@ SSI middleware for browser-sync
 
 
 ```
+var ssi = require('browsersync-ssi');
+
 browserSync({
 
   server: {
