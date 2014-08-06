@@ -10,10 +10,10 @@ var ssi = require('browsersync-ssi');
 browserSync({
 
   server: {
-    baseDir: ['src'],
+    baseDir: ['app'],
 
     middleware: ssi({
-      baseDir: __dirname + '/src',
+      baseDir: __dirname + '/app',
       ext: '.shtml'
     })
 
