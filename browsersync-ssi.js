@@ -25,7 +25,7 @@ module.exports = function browserSyncSSI(opt) {
 
       //TODO get browser-sync-client.x.x.x.js version dynamicly
       //TODO inject more elegant using regexp
-      contents = contents.replace(/<\/head>/, '<script async src="//' + req.headers.host + '/browser-sync-client.1.3.3.js"></script></head>');
+      contents = contents.replace(/<\/head>/, '<script async src="//' + req.headers.host + '/browser-sync-client.1.3.5.js"></script></head>');
 
       res.writeHead(200, {
         'Content-Type': 'text/html'
