@@ -1,6 +1,6 @@
 {
   "name": "browsersync-ssi",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SSI (Server Side Includes) Middleware for Browser-Sync",
   "main": "browsersync-ssi.js",
   "scripts": {
@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/soenkekluth/browsersync-ssi",
   "dependencies": {
-    "ssi": "^0.1.6"
+    "ssi": "^0.1.5"
   }
 }
