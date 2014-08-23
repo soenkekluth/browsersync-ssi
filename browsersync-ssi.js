@@ -15,7 +15,7 @@ module.exports = function browserSyncSSI(opt) {
   return function(req, res, next) {
 
     var url = req.url === '/' ? ('/index' + ext) : req.url;
-    var filename = baseDir + url;
+    var filename = baseDir + url.split('?')[0];
 
     if (url.indexOf(ext) > -1 && fs.existsSync(filename)) {
 
