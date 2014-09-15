@@ -10,8 +10,11 @@ module.exports = function browserSyncSSI(opt) {
   var ext = opt.ext || '.shtml';
   var baseDir = opt.baseDir || __dirname;
   var version = opt.version || '1.4.0';
-  var parser = new ssi(__dirname, baseDir, baseDir);
 
+  var bsURL = version <= '1.4.0' ? '/browser-sync/browser-sync-client.' : '/browser-sync-client.';
+  bsURL += version + 'js';
+
+  var parser = new ssi(__dirname, baseDir, baseDir);
 
   return function(req, res, next) {
 
@@ -24,9 +27,8 @@ module.exports = function browserSyncSSI(opt) {
         encoding: 'utf8'
       })).contents;
 
-      //TODO get browser-sync-client.x.x.x.js version dynamicly
       //TODO inject more elegant using regexp
-      contents = contents.replace(/<\/head>/, '<script async src="//' + req.headers.host + '/browser-sync/browser-sync-client.' + version + '.js"></script></head>');
+      contents = contents.replace(/<\/head>/, '<script async src="//' + bsURL + ' "></script></head>');
 
       res.writeHead(200, {
         'Content-Type': 'text/html'
