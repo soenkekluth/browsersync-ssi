@@ -14,7 +14,8 @@ browserSync({
 
     middleware: ssi({
       baseDir: __dirname + '/app',
-      ext: '.shtml'
+      ext: '.shtml',
+      version: '1.4.0'
     })
 
   },
