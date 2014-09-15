@@ -11,8 +11,8 @@ module.exports = function browserSyncSSI(opt) {
   var baseDir = opt.baseDir || __dirname;
   var version = opt.version || '1.4.0';
 
-  var bsURL = version <= '1.4.0' ? '/browser-sync/browser-sync-client.' : '/browser-sync-client.';
-  bsURL += version + 'js';
+  var bsURL = version >= '1.4.0' ? '/browser-sync/browser-sync-client' : '/browser-sync-client';
+  bsURL += version + '.js';
 
   var parser = new ssi(__dirname, baseDir, baseDir);
 
