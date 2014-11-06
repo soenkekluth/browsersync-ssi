@@ -9,12 +9,13 @@ module.exports = function browserSyncSSI(opt) {
   var opt = opt || {};
   var ext = opt.ext || '.shtml';
   var baseDir = opt.baseDir || __dirname;
+  var matcher = '/**/*' + ext;
   var version = opt.version || '1.4.0';
 
   var bsURL = version >= '1.4.0' ? '/browser-sync/browser-sync-client' : '/browser-sync-client';
   bsURL += version + '.js';
 
-  var parser = new ssi(__dirname, baseDir, baseDir);
+  var parser = new ssi(baseDir, baseDir, matcher);
 
   return function(req, res, next) {
 
