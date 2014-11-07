@@ -12,7 +12,7 @@ module.exports = function browserSyncSSI(opt) {
   var matcher = '/**/*' + ext;
   var version = opt.version || '1.4.0';
 
-  var bsURL = version >= '1.4.0' ? '/browser-sync/browser-sync-client' : '/browser-sync-client';
+  var bsURL = version >= '1.4.0' ? '/browser-sync/browser-sync-client.' : '/browser-sync-client.';
   bsURL += version + '.js';
 
   var parser = new ssi(baseDir, baseDir, matcher);
@@ -29,7 +29,7 @@ module.exports = function browserSyncSSI(opt) {
       })).contents;
 
       //TODO inject more elegant using regexp
-      contents = contents.replace(/<\/head>/, '<script async src="//' + bsURL + ' "></script></head>');
+      contents = contents.replace(/<\/head>/, '<script async src="' + bsURL + '"></script></head>');
 
       res.writeHead(200, {
         'Content-Type': 'text/html'
