@@ -10,10 +10,20 @@ module.exports = function browserSyncSSI(opt) {
   var ext = opt.ext || '.shtml';
   var baseDir = opt.baseDir || __dirname;
   var matcher = '/**/*' + ext;
-  var version = opt.version || '1.4.0';
+  var version = opt.version || '';
+  var bsURL;
 
-  var bsURL = version >= '1.4.0' ? '/browser-sync/browser-sync-client.' : '/browser-sync-client.';
-  bsURL += version + '.js';
+  if (version === '') {
+    bsURL = '/browser-sync/browser-sync-client.js';
+  }
+  else {
+      if (version >= '1.4.0') {
+        bsURL = '/browser-sync/browser-sync-client.' + version + '.js';
+      }
+      else {
+        bsURL = '/browser-sync-client.' + version + '.js';
+      }
+  }
 
   var parser = new ssi(baseDir, baseDir, matcher);
 
