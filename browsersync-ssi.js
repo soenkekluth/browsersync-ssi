@@ -5,6 +5,7 @@ module.exports = function browserSyncSSI(opt) {
   var ssi = require('ssi');
   var path = require('path');
   var fs = require('fs');
+  var url = require('url');
 
   var opt = opt || {};
   var ext = opt.ext || '.shtml';
@@ -29,10 +30,10 @@ module.exports = function browserSyncSSI(opt) {
 
   return function(req, res, next) {
 
-    var url = req.url === '/' ? ('/index' + ext) : req.url;
-    var filename = baseDir + url.split('?')[0];
+    var pathname = url.parse(req.originalUrl || req.url).pathname;
+    var filename = path.join(baseDir, pathname.substr(-1) === '/' ? pathname + 'index' + ext : pathname);
 
-    if (url.indexOf(ext) > -1 && fs.existsSync(filename)) {
+    if (filename.indexOf(ext) > -1 && fs.existsSync(filename)) {
 
       var contents = parser.parse(filename, fs.readFileSync(filename, {
         encoding: 'utf8'
