@@ -1,6 +1,8 @@
 browsersync-ssi
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/soenkekluth/browsersync-ssi.svg)](https://greenkeeper.io/)
+
 SSI middleware for browser-sync
 
 
