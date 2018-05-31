@@ -26,7 +26,7 @@ module.exports = function browserSyncSSI(opt) {
       }
   }
 
-  var parser = new ssi(baseDir, baseDir, matcher);
+  var parser = new ssi(baseDir, baseDir, matcher, true);
 
   return function(req, res, next) {
 
